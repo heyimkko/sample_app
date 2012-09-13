@@ -25,6 +25,12 @@ describe "Authentication" do
 				before { click_link "Home" }
 				it { should_not have_selector('div.alert.alert-error') }
 			end
+			
+			describe "limited to guest functionality" do
+				before { click_link "Home" }
+				it { should_not have_selector('Profile') }
+				it { should_not have_selector('Settings') }
+			end
 		end
 	end
 		
@@ -65,6 +71,15 @@ describe "Authentication" do
 			
 					it "should render the desired protected page" do
 						page.should have_selector('title', text: 'Edit user')
+					end
+					
+					describe "when signing in again" do
+						before do
+							visit signin_path
+							fill_in "Email", with: user.email
+							fill_in "Password", with: user.password
+							click_button "Sign in"
+						end
 					end
 				end
 			end
