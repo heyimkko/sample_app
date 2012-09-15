@@ -32,7 +32,6 @@ describe "Authentication" do
 				it { should_not have_selector('Settings') }
 			end
 		end
-	end
 		
 		describe "with valid information" do
 			let(:user) { FactoryGirl.create(:user) }
@@ -53,6 +52,7 @@ describe "Authentication" do
 				it { should have_link('Sign in') }
 			end
 		end
+	end
 	
 	describe "authorization" do
 		
@@ -82,6 +82,7 @@ describe "Authentication" do
 						end
 					end
 				end
+			end
 			
 			describe "in the Relationships controller" do
 				describe "submitting to the create action" do

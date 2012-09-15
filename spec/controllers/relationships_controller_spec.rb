@@ -32,7 +32,7 @@ describe RelationshipsController do
 			end.to change(Relationship, :count).by(-1)
 		end
 		
-		it " should respond with success" do
+		it "should respond with success" do
 			xhr :delete, :destroy, id: relationship.id
 			response.should be_success
 		end
